@@ -173,7 +173,7 @@ public class App {
         switch (n) {
             case 0:
                 System.out.println(
-                        "==================================================================================================");
+                        "\n==================================================================================================");
                 System.out.println("                      Terima kasih telah menggunakan ATM! :D");
                 System.out.println(
                         "==================================================================================================\n\n");
@@ -236,8 +236,12 @@ public class App {
 
                     if (jwb.equalsIgnoreCase("y")) {
                         bank[x][1] = pinB;
+                        pinFix = pinB;
                         System.out.println("Selamat pin anda sudah berubah!");
                         break;
+                    } else {
+                        menuATM();
+                        chooseMenuATM();
                     }
                 } while (true);
             default:
