@@ -12,7 +12,7 @@ public class App {
     // keperluan ATM
     static int l = 1, x = 0, n = 0, rek;
     static double pin, pinFix, login, uang;
-    static boolean check1 = false, check2 = false;
+    static boolean check1, check2;
 
     public static void main(String[] args) {
         Login();
@@ -24,7 +24,7 @@ public class App {
         boolean checker;
         username = InputString("Masukan Username : ");
         password = InputString("Masukan Password : ");
-        checker = LoginChecker(username, password);
+        checker = LoginChecker(username, password, userDatas);
         if (checker) {
             System.out.println("\nBerhasil Login sebagai : " + username + "\n");
             Menu();
@@ -99,10 +99,12 @@ public class App {
 
     static void loginATM() {
         System.out.println("[ ATM Pendragon ]");
+        l = 1;
         do {
+            check1 = false;
+            check2 = false;
             login = InputDouble("No rek: ");
             pin = InputDouble("Pin: ");
-
             for (int i = 0; i < bank.length; i++) {
                 if (login == bank[i][0]) {
                     x = i;
@@ -227,23 +229,20 @@ public class App {
                 }
                 break;
             case 5:
-
                 ATMchecker();
 
-                do {
-                    int pinB = InputInt("Masukkan pin baru anda: ");
-                    String jwb = InputString("Yakin ingin ingin mengubah pin lama anda menjadi " + pinB + " (Y/N) ?");
+                int pinB = InputInt("Masukkan pin baru anda: ");
+                String jwb = InputString("Yakin ingin ingin mengubah pin lama anda menjadi " + pinB + " (Y/N) ? ");
 
-                    if (jwb.equalsIgnoreCase("y")) {
-                        bank[x][1] = pinB;
-                        pinFix = pinB;
-                        System.out.println("Selamat pin anda sudah berubah!");
-                        break;
-                    } else {
-                        menuATM();
-                        chooseMenuATM();
-                    }
-                } while (true);
+                if (jwb.equalsIgnoreCase("y")) {
+                    bank[x][1] = pinB;
+                    pinFix = pinB;
+                    System.out.println("Selamat pin anda sudah berubah!");
+                } else {
+                    menuATM();
+                    chooseMenuATM();
+                }
+                break;
             default:
                 System.out.println("Menu ATM tidak ditemukan!");
         }
@@ -322,9 +321,9 @@ public class App {
     }
 
     // Method with return value
-    static boolean LoginChecker(String username, String password) {
-        for (int i = 0; i < userDatas[0].length; i++) {
-            if (username.equals(userDatas[0][i]) && password.equals(userDatas[1][i])) {
+    static boolean LoginChecker(String username, String password, String[][] data) {
+        for (int i = 0; i < data[0].length; i++) {
+            if (username.equals(data[0][i]) && password.equals(data[1][i])) {
                 return true;
             }
         }
@@ -348,6 +347,6 @@ public class App {
 
     static char InputChar(String msg) {
         System.out.print(msg);
-        return sc.next().toLowerCase().charAt(0);
+        return sc.next().charAt(0);
     }
 }
