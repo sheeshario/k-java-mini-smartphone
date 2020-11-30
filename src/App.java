@@ -299,7 +299,7 @@ public class App {
                     System.out.println("Operator tidak ditemukan silahkan coba lagi!");
                     break;
             }
-        } while (hasil == 0);
+        } while (true);
         System.out.print("Hasil Perhitungan; " + a + operator + b);
         System.out.print(" = " + hasil + "\n\n");
         do {
