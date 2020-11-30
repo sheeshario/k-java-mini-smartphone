@@ -273,7 +273,7 @@ public class App {
 
     static void Kalkulator() {
         double a, b;
-        double hasil = 0;
+        Object hasil = null;
         char operator;
         System.out.println("\n [ Kalkulator 2 Bilangan ]");
         a = InputDouble("\nMasukan Nilai Pertama : ");
@@ -299,7 +299,7 @@ public class App {
                     System.out.println("Operator tidak ditemukan silahkan coba lagi!");
                     break;
             }
-        } while (true);
+        } while (hasil == null);
         System.out.print("Hasil Perhitungan; " + a + operator + b);
         System.out.print(" = " + hasil + "\n\n");
         do {
