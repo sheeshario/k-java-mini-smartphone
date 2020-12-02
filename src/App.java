@@ -205,7 +205,7 @@ public class App {
 
                 ATMMoneyCheck("tarik");
 
-                if (uang < bank[(int) login - 1][2]) {
+                if (uang <= bank[(int) login - 1][2]) {
                     bank[(int) login - 1][2] = bank[(int) login - 1][2] - uang;
                     System.out.println("Penarikan berhasil!");
                 }
@@ -222,7 +222,7 @@ public class App {
 
                 ATMMoneyCheck("transfer");
 
-                if (uang < bank[(int) login - 1][2]) {
+                if (uang <= bank[(int) login - 1][2]) {
                     bank[(int) login - 1][2] = bank[(int) login - 1][2] - uang;
                     bank[rek][2] = bank[rek][2] + uang;
                     System.out.println("Transfer berhasil!");
