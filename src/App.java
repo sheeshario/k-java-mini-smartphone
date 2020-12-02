@@ -280,6 +280,7 @@ public class App {
         b = InputDouble("Masukan Nilai Kedua : ");
         do {
             operator = InputChar("Masukan Oprator : ");
+            operator = operator.toLowerCase();
             switch (operator) {
                 case '*':
                 case 'x':
