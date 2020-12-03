@@ -257,6 +257,7 @@ public class App {
 
         if (pinFix != pin && l == 4) {
             System.out.println("Anda telah terblokir!");
+            Menu();
             return;
         }
     }
