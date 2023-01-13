@@ -15,3 +15,11 @@
 The workspace contains two folders by default, where:
 
 - `src`: the folder to maintain sources
+
+## Content
+
+CLI-based:
+- Login Menu
+- Contact
+- ATM (Automated Teller Machine)
+- 2 Digit Calculator
